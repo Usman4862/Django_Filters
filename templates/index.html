@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        {% for student in students %}
+            <h3>{{ forloop.counter }} -  {# sorting from 1 to so on. #}
+                {{ student.first_name|capfirst|title }}
+                {{ student.last_name|upper|title }}______
+                {{ student.d_o_b|date:'d/m/Y' }}______
+                {{ student.student_class|upper|add:'____degree'|upper }}______
+                {{student.marks|length}}__float_numnber___ {# this length filter is used to calculate the length of strings and lists only and return 0 for undefined variable. #}
+                {{ student.marks|floatformat:3 }}
+            </h3>
+        {% endfor %}
+        {# Some Filters take argument, and filter|filter are called chained filter. #}
+        <h3>{{ p|capfirst|truncatewords:'5' }}</h3>
+        <h3>{{ p|upper|truncatechars:'200' }} {# this truncatechars is used to end the paragraph at any point with 3 dots. #}
+        {# if the given variable is empty then we will make it default #}
+        <p>{{ mother_number|default:'mother`s number is not provided in the student details'|title }}</p>
+            <h1>_________SLICING____________</h1>
+        {# this is slicing example: #}
+            <h2>{{ s|slice:'20:30' }}</h2>
+        {# Float Numbers Filters  #}
+        <script src="" async defer></script>
+    </body>
+</html>
