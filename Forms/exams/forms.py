@@ -25,6 +25,17 @@ class StudentExam(forms.Form):
         decimal_places=1,
     )
 
+    # adding Validation
+
+    def clean_name(self):
+        validating_name = self.cleaned_data['name']
+        if len(validating_name) < 4:
+            raise forms.ValidationError('Enter more than or equal to 4 characters')
+        return validating_name
+
+
+
+
 """
 NOTE: 
     There are many types of widgets, we can use it for different purposes, this is very benificial for us.
