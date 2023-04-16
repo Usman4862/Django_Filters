@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Form</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+          <form action='', method='get'>
+            <table>
+                {{ form.as_p }}
+                {# form.as_p, form_astr, form_asul, form.astable is also used #}
+            </table>
+            <input type='submit' value='Submit'>
+          </form>  
+          <hr>
+          <hr>
+          {{ form.name.value }} <br> {# this is the name value in this form #}
+          {{ form.name.label }} <br> {# this is used to show the label of that name in this form #}
+          {{ form.name.html_name }} <br> {# this is the html-name in the form #}
+          {{ form.name.help_text }} <br> {# this is used to show the help  #}
+          {{ form.name.field.required }} <br> {# this is used to show that, is it required field or not (BOOLEAN) #}
+          <hr>
+          {# we can also use loop for forums #}
+          {% for fields in form %}
+            {{ fields.html_name }} <br>
+            {{ fields.label }} <br><br>
+          {% endfor %}
+        <script src="" async defer></script>
+    </body>
+</html>
