@@ -8,13 +8,16 @@ def student_exam(request):
         if fm.is_valid():
             print('Data Validated')
             name = fm.cleaned_data['name']
-            bio = fm.cleaned_data['bio']
-            password = fm.cleaned_data['test']
+            # bio = fm.cleaned_data['bio']
             email = fm.cleaned_data['email']
+            password = fm.cleaned_data['password']
+            repassword = fm.cleaned_data['repassword']
             print('Name', name)
-            print('Bio', bio)
+            # print('Bio', bio)
             print('Test', password)
             print('Email', email)
+            print(password)
+            print(repassword)
     else:
         fm = StudentExam()
     context = {
