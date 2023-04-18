@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Registration</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            .errorlist{
+                color: red;
+                background-color: black;
+            }
+            .success{
+                color: green;
+                background-color: #e18686;
+            }
+            .info{
+                color: blue;
+                background-color: grey;
+            }
+            .debug{
+                color: white;
+                background-color: black;
+            }
+            .warning{
+                color: yellow;
+                background-color: #2ba9a3;
+            }
+            .error{
+                color: red;
+                background: yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <form action='', method='POST'>
+            {% csrf_token %}
+            <table>
+                <hr>
+                <h4>Registration</h4>
+                <hr>
+                {{ form.as_p  }}
+                {% if messages %}
+                    {% for message in messages %}
+                        <span class="{{ message.tags }}">{{ message }}</span>
+                    {% endfor %}
+                {% endif %}
+            </table>
+            <input type='submit' value='Submit'>  
+
+        </form>
+        <script src="" async defer></script>
+    </body>
+</html>
